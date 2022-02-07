@@ -1,7 +1,6 @@
-#
-# Python: (version)
-#
-# Author: Lucy Tibbits
+#   Python: 3.9.7
+# 
+#   Author: Lucy Tibbits
 #
 #   Purpose: the tech academy pyton course, creating first program, demonstrating
 #   how to pass variables from function to function while producing a functional game
@@ -34,7 +33,7 @@ def describe_game(name):
             if name == "":
                 name = input("\nWhat is your name \n>>> ").capitalize()
                 if name != "":
-                    print("\nWelcome, {}!".format(name))
+                    print('\033[31m' + "\nWelcome, {}!".format(name))
                     print("\nIn this game, you will be greeted \nby several different people. \nYou can choose to be nice or mean")
                     print("but at the end of the game your fate \nwill be sealed by your actions.")
                     stop = False
@@ -91,13 +90,17 @@ def lose(nice,mean,name):
 def again(nice,mean,name):
     stop = True
     while stop:
-        choice = input ("\nDo you want to play again? (y/n):\n>>> ").lower
+        choice = input ("\nDo you want to play again? (y/n):\n>>> ").lower()
+        if choice == "y":
+            stop = False
+            reset(nice,mean,name)
         if choice == "n":
-            print ("\nOh, so sad, sorry to see you go!")
+            print("\nOh, so sad, sorry to see you go!")
             stop = False
             quit()
         else:
-            print("\nEnter ( Y ) for 'YES', ( N ) for 'NO';\n>>> ")
+            print("\nEnter ( Y ) for 'YES', ( N ) for 'NO':\n>>> ")
+          
 
 
 def reset(nice,mean,name):
